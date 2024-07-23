@@ -1,0 +1,47 @@
+.base {
+  padding: 40px;
+
+  background-color: #de9494;
+}
+
+.addpro {
+  background-color: #f7f1d3;
+
+  border-radius: 5px;
+
+  margin-left: 20%;
+
+  align-items: center;
+
+  padding: 50px;
+
+  width: 60%;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 80%;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  font-size: 16px;
+
+  padding: 10px 20px;
+}
+
+.btd {
+  padding-top: 30px;
+}

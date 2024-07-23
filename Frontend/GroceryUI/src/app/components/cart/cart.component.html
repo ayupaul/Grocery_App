@@ -1,0 +1,133 @@
+<div class="base">
+  <div class="cart">
+    <div class="container" *ngIf="listOfCartItems.length !== 0">
+      <strong
+        >Want to Add more products to the Cart
+        <a routerLink="/dashboard">Browse More</a></strong
+      >
+
+      <div class="row">
+        <div
+          class="card col-md-3 mb-3"
+          *ngFor="let cartItem of listOfCartItems"
+        >
+          <div>
+            <img
+              src="{{ cartItem.productDetails.imageLink }}"
+              class="card-img-top"
+              alt="{{ cartItem.productDetails.productName }}"
+              style="width: 100%; height: 100%"
+            />
+          </div>
+
+          <div class="card-body">
+            <strong class="card-title">{{
+              cartItem.productDetails.productName
+            }}</strong>
+
+            <p class="card-text">{{ cartItem.productDetails.description }}</p>
+
+            <p class="card-text">
+              Price: {{ cartItem.productDetails.price | currency : "INR" }}
+            </p>
+
+            <i class="card-text text-success"
+              >Available Quantity:
+              {{ cartItem.productDetails.availableQuanity }}</i
+            >
+
+            <p class="card-text">Quantity: {{ cartItem.quantity }}</p>
+
+            <div class="btn-group">
+              <button
+                class="btn btn-primary"
+                (click)="decreaseQuantity(cartItem, cartItem.productDetails.id)"
+              >
+                -
+              </button>
+
+              <div style="width: 25px; margin-top: 4px; margin-left: 12px">
+                <strong>{{ cartItem.quantity }}</strong>
+              </div>
+
+              <div
+                *ngIf="
+                  cartItem.productDetails.availableQuanity > cartItem.quantity
+                "
+              >
+                <button
+                  class="btn btn-primary"
+                  (click)="
+                    increaseQuantity(cartItem, cartItem.productDetails.id)
+                  "
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <p
+              class="card-text"
+              *ngIf="
+                cartItem.quantity > cartItem.productDetails.availableQuanity
+              "
+            >
+              Product is out of stock.
+            </p>
+
+            <button
+              class="btn btn-danger"
+              style="width: 200px; margin-left: 1px; margin-top: 8px"
+              (click)="onRemove(cartItem.cartId)"
+            >
+              Remove From Cart
+            </button>
+
+            <p class="card-text" style="padding-top: 10px">
+              Total Price:
+              {{
+                cartItem.productDetails.price * cartItem.quantity
+                  | currency : "INR"
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="padding-top: 10px">
+          <strong
+            >Grand Total Price:
+            {{ calculateGrandTotalPrice() | currency : "INR" }}</strong
+          >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <button
+            class="btn btn-primary"
+            style="margin-top: 10px; width: 20%"
+            (click)="placeOrder()"
+          >
+            Place Order
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="noitem" *ngIf="listOfCartItems.length === 0">
+      <div>
+        <img
+          src="../../../assets/Images/emptycart.png"
+          alt="No Item In Cart"
+        /><br />
+
+        <strong
+          >Missing on good deals?
+          <a routerLink="/dashboard">Buy Items</a></strong
+        >
+      </div>
+    </div>
+  </div>
+</div>

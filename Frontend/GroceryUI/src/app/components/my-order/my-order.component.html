@@ -1,0 +1,79 @@
+<div class="base">
+  <div class="order">
+    <div class="container" *ngIf="listOrderItems.length !== 0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Drop your Review Here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let orderItem of listOrderItems">
+            <td>
+              <img
+                src="{{ orderItem.productDetails.imageLink }}"
+                alt="{{ orderItem.productDetails.productName }}"
+                style="width: 200px; height: 200px"
+              />
+            </td>
+            <td>{{ orderItem.productDetails.productName }}</td>
+            <td>{{ orderItem.productDetails.description }}</td>
+            <td>{{ orderItem.productDetails.price | currency : "INR" }}</td>
+            <td>{{ orderItem.quantity }}</td>
+            <td>
+              {{
+                orderItem.productDetails.price * orderItem.quantity
+                  | currency : "INR"
+              }}
+            </td>
+            <td>
+              <form
+                [formGroup]="reviewForm"
+                (submit)="submitReviewForm(orderItem.productDetails.id)"
+              >
+                <div>
+                  <ngb-rating
+                    [max]="5"
+                    style="color: rgba(190, 216, 76, 0.726); padding-left: 80px"
+                    formControlName="ratingControl"
+                  ></ngb-rating>
+                </div>
+
+                <textarea
+                  id="review"
+                  cols="30"
+                  rows="1"
+                  formControlName="review"
+                  placeholder="Comments"
+                ></textarea>
+
+                <button class="btn btn-primary">Review</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <span><a class="btd" routerLink="/dashboard">Back to Dashboard</a></span>
+    </div>
+
+    <div class="d-flex" *ngIf="listOrderItems.length === 0">
+      <img
+        class="nif"
+        src="../../../assets/Images/no_order_found.jpg"
+        alt="No order found"
+        style="width: 500px; height: 400px"
+      />
+
+      <span><a class="btd" routerLink="/dashboard">Dashboard</a></span>
+    </div>
+  </div>
+</div>
+
+⁠⁠⁠⁠⁠⁠⁠

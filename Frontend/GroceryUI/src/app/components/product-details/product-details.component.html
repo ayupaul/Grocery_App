@@ -1,0 +1,89 @@
+<div class="details">
+  <div class="row md-12 card" style="width: auto">
+    <div class="card-header">
+      <strong>{{ productData.productName }}</strong>
+    </div>
+
+    <div class="card-body">
+      <img
+        src="{{ productData.imageLink }}"
+        class="card-img-top"
+        alt="Product Image"
+      />
+
+      <p class="card-text">
+        <strong>Description: {{ productData.description }}</strong>
+      </p>
+
+      <i class="text-success"
+        >Available Quantity: {{ productData.availableQuanity }}</i
+      >
+
+      <strong class="text-primary"
+        >Price: {{ productData.price | currency : "INR" }}</strong
+      >
+
+      <strong>Specification: {{ productData.specification }}</strong>
+
+      <div class="form-group">
+        <input
+          *ngIf="isInCart == false"
+          type="number"
+          style="margin-top: 8px"
+          placeholder="Enter quantity"
+          class="form-control"
+          [(ngModel)]="quantity"
+        />
+      </div>
+
+      <h1 *ngIf="productData.availableQuanity == 0 && isInCart === false">
+        Out Of Stock
+      </h1>
+
+      <button
+        class="btn btn-primary"
+        (click)="addToCart()"
+        *ngIf="
+          isInCart === false &&
+          productData.availableQuanity > 0 &&
+          isSignedIn == true
+        "
+      >
+        Add To Cart
+      </button>
+
+      <strong class="ltb" *ngIf="isSignedIn == false"
+        ><a routerLink="/login">Login To Buy product</a></strong
+      >
+
+      <button
+        class="btn btn-primary"
+        routerLink="/cart/{{ userIdFromToken }}"
+        *ngIf="isInCart === true"
+      >
+        Go To Cart
+      </button>
+
+      <div *ngFor="let reviews of review">
+        <ngb-rating
+          style="color: goldenrod"
+          [rate]="reviews.rating"
+          [readonly]="true"
+          [max]="5"
+        ></ngb-rating>
+
+        <strong>Review: {{ reviews.review }}</strong>
+
+        <p style="color: blueviolet">
+          By: {{ reviews.userName }} (On: {{ reviews.date }})
+        </p>
+      </div>
+
+      <div class="btd">
+        <a routerLink="/dashboard">Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+⁠⁠⁠⁠⁠⁠⁠

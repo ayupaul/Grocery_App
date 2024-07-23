@@ -1,0 +1,125 @@
+<div class="base">
+  <div class="register">
+    <form [formGroup]="registerForm" (submit)="onRegister()">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Full Name</label>
+
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your Full Name"
+          id="exampleInputPassword1"
+          formControlName="fullName"
+        />
+
+        <span
+          *ngIf="
+            registerForm.controls['fullName'].dirty &&
+            registerForm.hasError('required', 'fullName')
+          "
+          style="color: red"
+          >FullName is required</span
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter your Email Address"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+
+        <span
+          *ngIf="
+            registerForm.controls['email'].dirty &&
+            registerForm.hasError('required', 'email')
+          "
+          style="color: red"
+          >Please enter valid email</span
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="examplePhone" class="form-label">Phone Number</label>
+
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Enter your Phone Number"
+          id="examplePhone"
+          formControlName="phoneNumber"
+        />
+
+        <span
+          *ngIf="
+            registerForm.controls['phoneNumber'].dirty &&
+            registerForm.hasError('required', 'phoneNumber')
+          "
+          style="color: red"
+          >Phone Number should be of 10 digits</span
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Create Your Password"
+          id="exampleInputPassword1"
+          formControlName="password"
+        />
+
+        <span
+          *ngIf="
+            registerForm.controls['password'].dirty &&
+            registerForm.hasError('required', 'password')
+          "
+          style="color: red"
+          >password should contain atleast 8 characters with alphanumeric and
+          atleast 1 special characters</span
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword2" class="form-label"
+          >Confirm Password</label
+        >
+
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword2"
+          placeholder="Reconfirm your Password"
+          formControlName="confirmPassword"
+        />
+      </div>
+
+      <div *ngIf="registerForm.errors?.['passwordMismatchError']">
+        Password and Confirm Password do not match.
+      </div>
+
+      <button
+        [disabled]="registerForm.invalid"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Submit
+      </button>
+
+      <div class="redirecttologin">
+        Already have an Account? <a routerLink="/login">Login Here</a>
+
+        <div class="redirecttosignup">
+          <a routerLink="/dashboard">Back to Dashboard</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

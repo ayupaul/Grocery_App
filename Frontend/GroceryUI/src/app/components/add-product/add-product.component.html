@@ -1,0 +1,100 @@
+<div class="base">
+  <div class="addpro">
+    <form [formGroup]="addProductForm" (submit)="onAdd()">
+      <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="productName"
+          aria-describedby="productHelp"
+          placeholder="Enter Product Name"
+          formControlName="productName"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          aria-describedby="descriptionHelp"
+          placeholder="Enter Product Description"
+          formControlName="description"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          aria-describedby="categoryHelp"
+          placeholder="Enter Product Category"
+          formControlName="category"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="available" class="form-label">Available Quantity</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="available"
+          aria-describedby="availableHelp"
+          placeholder="Enter Product Available Quantity"
+          formControlName="availableQuanity"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="imageurl" class="form-label">Image URL</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="imageurl"
+          aria-describedby="imageHelp"
+          placeholder="Enter Product's Image Url"
+          formControlName="imageLink"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          aria-describedby="priceHelp"
+          placeholder="Enter Product's Price"
+          formControlName="price"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="specification" class="form-label">Specification</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="specification"
+          aria-describedby="specificationHelp"
+          placeholder="Enter Product's Specification"
+          formControlName="specification"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Product</button>
+
+      <div class="btd"><a routerLink="/dashboard">Back to Dashboard</a></div>
+    </form>
+  </div>
+</div>

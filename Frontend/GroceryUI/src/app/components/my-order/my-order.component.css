@@ -1,0 +1,85 @@
+.base {
+  background-color: #de9494;
+
+  height: 1200vh;
+
+  margin-top: 0;
+
+  padding-top: 1%;
+}
+
+.table {
+  width: 70%;
+
+  height: 50%;
+
+  border-collapse: collapse;
+
+  align-items: center;
+}
+
+/* Table header styles */
+
+.table thead th {
+  background-color: #96b8db;
+
+  color: #212529;
+
+  font-weight: bold;
+
+  padding: 10px;
+
+  text-align: left;
+
+  border-bottom: 2px solid #b9d8f7;
+}
+
+/* Table row styles */
+
+.table tbody td {
+  padding: 10px;
+
+  background-color: #f8fafa;
+
+  border-bottom: 1px solid #295e92;
+}
+
+/* CSS for the image */
+
+.table img {
+  display: block;
+
+  width: 100px;
+
+  height: auto;
+
+  margin: 0 auto;
+}
+
+/* CSS for the "No items in orders" message */
+
+.order-message {
+  text-align: center;
+
+  margin-top: 20px;
+
+  font-style: italic;
+
+  color: #888;
+}
+
+.btd {
+  color: #031a19;
+
+  align-items: center;
+
+  padding-left: 100px;
+}
+
+.nif {
+  align-content: center;
+
+  margin-left: 30%;
+
+  margin-top: 5%;
+}

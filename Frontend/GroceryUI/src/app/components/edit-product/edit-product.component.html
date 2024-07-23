@@ -1,0 +1,95 @@
+<div class="base">
+  <div class="edit">
+    <form [formGroup]="addProductForm" (submit)="onEdit()">
+      <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="productName"
+          aria-describedby="productHelp"
+          formControlName="productName"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          aria-describedby="descriptionHelp"
+          formControlName="description"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          aria-describedby="categoryHelp"
+          formControlName="category"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="available" class="form-label">Available Quantity</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="available"
+          aria-describedby="availableHelp"
+          formControlName="availableQuanity"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="imageurl" class="form-label">Image URL</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="imageurl"
+          aria-describedby="imageHelp"
+          formControlName="imageLink"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          aria-describedby="priceHelp"
+          formControlName="price"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="specification" class="form-label">Specification</label>
+
+        <input
+          type="text"
+          class="form-control"
+          id="specification"
+          aria-describedby="specificationHelp"
+          formControlName="specification"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Edit Product Details
+      </button>
+
+      <div class="btd"><a routerLink="/dashboard">Back to Dashboard</a></div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="base">
+  <h6>You can change role of the Users from here</h6>
+
+  <div class="editform" *ngFor="let users of userArray">
+    <input type="checkbox" [(ngModel)]="users.isSelected" />
+
+    <div>
+      <strong>{{ users.fullName }}</strong>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="changeRole()">Change Role</button>
+
+  <div><a class="btd" routerLink="/dashboard">Back to Dashboard</a></div>
+</div>
